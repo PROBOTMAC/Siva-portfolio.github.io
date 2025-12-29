@@ -1,0 +1,331 @@
+:root {
+  --primary: #F97316;
+  --accent: #FACC15;
+  --bg-dark: #111827;
+  --text-light: #E5E7EB;
+  --text-size: 22px;
+  --card-bg: #1a1a1a;
+  --card-border: #2a2a2a;
+  --line-color: var(--primary);
+  --card-hover-shadow: var(--accent);
+}
+
+#education {
+  height: 100vh;
+  position: relative;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#education > h2 {
+  font-size: 48px;
+  margin: 0 0 30px;
+  text-align: center;
+  color: var(--primary);
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: minmax(100px, auto);
+  justify-items: center;
+  gap: 25px;
+  width: 90vw;
+  /* max-width: 1200px; */
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.gridItems {
+  background-color: var(--card-bg);
+  border: 2px solid var(--card-border);
+  color: var(--text-light);
+  border-radius: 12px;
+  width: 450px;
+  max-width: 100%;
+  height: auto;
+  min-height: 160px;
+  padding: 15px 20px;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.gridItems:hover {
+  cursor: pointer;
+  border: 2px solid var(--primary);
+  box-shadow: 0 12px 40px rgba(249, 115, 22, 0.3);
+}
+
+.gridItems > .head {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5px 0;
+  gap: 15px;
+}
+
+.gridItems > .head > h6 {
+  font-size: 20px;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.gridItems > h2 { 
+  padding-bottom: 8px;
+  font-size: 18px;
+  color: var(--text-light);
+}
+
+.gridItems > h4 {
+  padding-bottom: 8px;
+  font-size: 15px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.gridItems > h5 {
+  font-size: 13px;
+  color: #9CA3AF;
+  font-style: italic;
+}
+
+.sslc {
+  grid-column: 2;
+}
+
+.hsc {
+  grid-column: 1;
+}
+
+.college {
+  grid-row: 3;
+  grid-column: 2;
+}
+
+.besant {
+  grid-row: 4;
+  grid-column: 1/2;
+}
+
+.eduIcon {
+  width: 42px;
+  height: 42px;
+  filter: brightness(0) saturate(100%) invert(53%) sepia(89%) saturate(2798%) hue-rotate(0deg) brightness(102%) contrast(96%);
+}
+
+/* Timeline Lines - Only visible on large screens */
+.line {
+  position: absolute;
+  border-top: 4px solid var(--line-color);
+  width: 43%;
+  top: 55%;
+  left: 450px;
+  transform: rotate(90deg);
+  z-index: 1;
+  display: block;
+}
+
+.sLines {
+  position: absolute;
+  border-top: 5px solid var(--line-color);
+  width: 13.5%;
+  z-index: 1;
+  display: block;
+}
+
+.lines1 {
+  left: 815px;
+  top: 200px;
+}
+
+.lines2 {
+  left: 815px;
+  top: 550px;
+}
+
+.lines3 {
+  width: 10%;
+  left: 645px;
+  top: 380px;
+}
+
+.lines4 {
+  width: 10%;
+  left: 645px;
+  top: 730px;
+}
+
+/* ========== TABLET RESPONSIVE (768px - 1024px) ========== */
+@media screen and (max-width: 1024px) {
+  #education {
+    padding: 40px 20px;
+  }
+
+  #education > h2 {
+    font-size: 40px;
+    margin: 20px 0 30px;
+  }
+
+  .gridContainer {
+    gap: 30px;
+  }
+
+  .gridItems {
+    width: 400px;
+  }
+
+  /* Adjust timeline lines for tablet */
+  .line,.lines1,.lines2,
+  .lines3,.lines4 {
+    /* left: 350px;
+    top: 400px;
+    
+    width: 50%; */
+    display: none;
+  }
+
+  /* .lines1 {
+    left: 650px;
+    top: 180px;
+    width: 15%;
+  }
+
+  .lines2 {
+    left: 650px;
+    top: 500px;
+    width: 15%;
+  }
+
+  .lines3 {
+    left: 500px;
+    top: 350px;
+    width: 12%;
+  }
+
+  .lines4 {
+    left: 500px;
+    top: 650px;
+    width: 12%;
+  } */
+}
+
+/* ========== MOBILE RESPONSIVE (max-width: 768px) ========== */
+@media screen and (max-width: 768px) {
+  #education {
+    padding: 40px 15px;
+    height: auto;
+  }
+
+  #education > h2 {
+    font-size: 32px;
+    margin: 20px 0 30px;
+  }
+
+  .gridContainer {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 10px;
+  }
+
+  .gridItems {
+    width: 100%;
+    max-width: 450px;
+    min-height: 200px;
+    padding: 20px 15px;
+  }
+
+  .gridItems > .head {
+    gap: 12px;
+  }
+
+  .gridItems > .head > h6 {
+    font-size: 20px;
+  }
+
+  .gridItems > h2 {
+    font-size: 18px;
+  }
+
+  .gridItems > h4 {
+    font-size: 15px;
+  }
+
+  .gridItems > h5 {
+    font-size: 13px;
+  }
+
+  .eduIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Reset grid positioning for mobile */
+  .sslc {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .hsc {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .college {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .besant {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  /* Hide timeline lines on mobile or create vertical line */
+  .line {
+    left: 50%;
+    top: 100px;
+    width: 80%;
+    transform: rotate(90deg) translateX(-50%);
+    transform-origin: top left;
+  }
+
+  .sLines {
+    display: none;
+  }
+}
+
+/* ========== SMALL MOBILE (max-width: 480px) ========== */
+@media screen and (max-width: 480px) {
+  #education > h2 {
+    font-size: 28px;
+  }
+
+  .gridItems {
+    padding: 18px 12px;
+  }
+
+  .gridItems > .head > h6 {
+    font-size: 18px;
+  }
+
+  .gridItems > h2 {
+    font-size: 16px;
+  }
+
+  .gridItems > h4 {
+    font-size: 14px;
+  }
+
+  .gridItems > h5 {
+    font-size: 12px;
+  }
+
+  .eduIcon {
+    width: 36px;
+    height: 36px;
+  }
+}

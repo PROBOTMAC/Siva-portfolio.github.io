@@ -1,0 +1,547 @@
+html {
+  scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+:root {
+  --primary: #F97316;
+  --accent: #FACC15;
+  --bg-dark: #111827;
+  --text-light: #E5E7EB;
+  --text-size: 22px;
+}
+
+body {
+  background: #0f0f0f;
+  color: var(--text-light);
+  perspective: 1000px;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ========== NAVBAR ========== */
+#navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 24px;
+  color: var(--primary);
+  position: sticky;
+  top: 2px;
+  /* top: 0; */
+  z-index: 100;
+  background-color: rgba(25, 26, 30, 0.65)
+
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  z-index: 1001;
+}
+
+.navLinks {
+  display: flex;
+  gap: 62px;
+  transition: all 0.3s ease;
+}
+
+.navLinks a {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 22px;
+  transition: 0.4s;
+}
+
+.navLinks a:hover {
+  color: var(--accent);
+}
+
+.menuBtn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menuBtn span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+/* ========== HERO SECTION ========== */
+#hero {
+  min-height: 94vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+#myName{
+  color: var(--primary);
+}
+
+.profile {
+  width: 40vw;
+  text-align: center;
+  align-content: center;
+  min-width: 300px;
+}
+
+.profile > img {
+  width: 150px;
+  border-radius: 100%;
+  border: 3px solid var(--primary);
+
+}
+
+.profile > h6 {
+  padding-top: 20px;
+  font-size: 18px;
+}
+
+.profile > h2 {
+  font-size: 32px;
+  padding-top: 10px;
+}
+
+.profile > h4 {
+  font-size: 56px;
+  padding-top: 10px;
+  line-height: 1.2;
+  margin-bottom: 28px;
+}
+
+.cubeSide {
+  width: 50vw;
+  align-self: center;
+  justify-items: center;
+}
+
+.cube {
+  transform-style: preserve-3d;
+  position: relative;
+  width: 600px;
+  height: 200px;
+  cursor: pointer;
+  animation: rotateX 8s cubic-bezier(0.6, -0.28, 0.735, 0.045) infinite;
+}
+
+@keyframes rotateX {
+  from {
+    transform: rotateY(360deg) translateZ(100px);
+  }
+  to {
+    transform: rotateY(-0deg) translateZ(-100px);
+  }
+}
+
+.side {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  opacity: 0.3;
+  border: 8px solid rgb(0, 182, 223);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+}
+
+.front {
+  transform: translateZ(100px);
+}
+
+.back {
+  transform: translateZ(-100px) rotateY(180deg);
+}
+
+.right {
+  transform: translateX(100px) rotateY(90deg);
+}
+
+.left {
+  transform: translateX(-100px) rotateY(-90deg);
+}
+
+.top {
+  transform: translateY(-100px) rotateX(90deg);
+}
+
+.bottom {
+  transform: translateY(100px) rotateX(-90deg);
+}
+
+#resume {
+  background-color: var(--primary);
+  
+  padding: 16px 32px;
+  cursor: pointer;
+  border: none;
+  border-radius: 16px;
+  transition: 1s;
+  color: var(--text-light);
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+}
+a{
+  text-decoration: none;
+  color: black;
+
+}
+
+#resume:hover {
+  background-color: var(--accent);
+  color: var(--text-light);
+}
+
+/* ========== ABOUT SECTION ========== */
+#about{
+  /* position: relative; */
+  /* border: 3px solid red; */
+}
+#about > .Acontainer {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+}
+
+.Acontainer > div > h1 {
+  font-size: 48px;
+  color: var(--primary);
+}
+
+.Acontainer > div > img {
+  margin-top: 20px;
+  width: 500px;
+  height: 600px;
+  max-width: 100%;
+  border-radius: 0% 40%;
+  transition: 0.5s;
+}
+
+.Acontainer > div > img:hover {
+  /* box-shadow: 16px 12px 40px rgba(249, 115, 22, 0.3); */
+
+  box-shadow: 4px 4px 5px 4px var(--primary);
+}
+
+.aboutText {
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+}
+
+.aboutText > h2 {
+  color: var(--primary);
+  font-size: 48px;
+  padding-bottom: 16px;
+}
+
+.aboutText > p {
+  line-height: 32px;
+  font-size: 18px;
+  color: var(--text-light);
+  /* text-align: justify; */
+}
+
+
+/* ========== TABLET RESPONSIVE (768px - 1024px) ========== */
+@media screen and (max-width: 1024px) {
+  .navLinks {
+    gap: 40px;
+  }
+
+  .navLinks a {
+    font-size: 20px;
+  }
+
+  #hero {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  .profile {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .profile > h4 {
+    font-size: 42px;
+  }
+
+  .profile > h2 {
+    font-size: 28px;
+  }
+
+  .cubeSide {
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .cube {
+    width: 400px;
+    height: 150px;
+  }
+
+  .side {
+    width: 150px;
+    height: 150px;
+    border: 6px solid rgb(0, 182, 223);
+  }
+
+  .front {
+    transform: translateZ(75px);
+  }
+
+  .back {
+    transform: translateZ(-75px) rotateY(180deg);
+  }
+
+  .right {
+    transform: translateX(75px) rotateY(90deg);
+  }
+
+  .left {
+    transform: translateX(-75px) rotateY(-90deg);
+  }
+
+  .top {
+    transform: translateY(-75px) rotateX(90deg);
+  }
+
+  .bottom {
+    transform: translateY(75px) rotateX(-90deg);
+  }
+
+  #about > .Acontainer {
+    flex-direction: column;
+    padding: 60px 20px;
+  }
+
+  .Acontainer > div > img {
+    width: 400px;
+    height: 500px;
+  }
+
+  .Acontainer > div > h1 {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .aboutText {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+  }
+
+  .aboutText > h2 {
+    font-size: 40px;
+  }
+}
+
+/* ========== MOBILE RESPONSIVE (max-width: 768px) ========== */
+@media screen and (max-width: 768px) {
+  #navBar {
+    padding: 16px 20px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .menuBtn {
+    display: flex;
+  }
+
+  .navLinks {
+    display: none;
+
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 70%;
+    max-width: 300px;
+    background: #1a1a1a;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transition: right 0.4s ease;
+    z-index: 1000;
+    display: none;
+  }
+
+  .navLinks.active {
+    display: flex;
+    top: 0;
+    right: 0;
+    transition: right 0.4s ease;
+  }
+
+  .navLinks a {
+    font-size: 20px;
+  }
+
+  #hero {
+    min-height: auto;
+    padding: 40px 20px;
+  }
+
+  .profile {
+    width: 100%;
+  }
+
+  .profile > img {
+    width: 120px;
+  }
+
+  .profile > h6 {
+    font-size: 16px;
+  }
+
+  .profile > h2 {
+    font-size: 24px;
+  }
+
+  .profile > h4 {
+    font-size: 32px;
+  }
+
+  #resume {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  .cubeSide {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .cube {
+    width: 300px;
+    height: 100px;
+  }
+
+  .side {
+    width: 100px;
+    height: 100px;
+    border: 4px solid rgb(0, 182, 223);
+    font-size: 18px;
+  }
+
+  .front {
+    transform: translateZ(50px);
+  }
+
+  .back {
+    transform: translateZ(-50px) rotateY(180deg);
+  }
+
+  .right {
+    transform: translateX(50px) rotateY(90deg);
+  }
+
+  .left {
+    transform: translateX(-50px) rotateY(-90deg);
+  }
+
+  .top {
+    transform: translateY(-50px) rotateX(90deg);
+  }
+
+  .bottom {
+    transform: translateY(50px) rotateX(-90deg);
+  }
+
+  @keyframes rotateX {
+    from {
+      transform: rotateY(360deg) translateZ(50px);
+    }
+    to {
+      transform: rotateY(-0deg) translateZ(-50px);
+    }
+  }
+
+  #about > .Acontainer {
+    padding: 40px 20px;
+  }
+
+  .Acontainer > div > h1 {
+    font-size: 32px;
+  }
+
+  .Acontainer > div > img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    aspect-ratio: 5/6;
+  }
+
+  .aboutText {
+    padding: 0 10px;
+  }
+
+  .aboutText > h2 {
+    font-size: 32px;
+  }
+
+  .aboutText > p {
+    font-size: 16px;
+    line-height: 28px;
+  }
+}
+
+/* ========== SMALL MOBILE (max-width: 480px) ========== */
+@media screen and (max-width: 480px) {
+  .profile > h4 {
+    font-size: 28px;
+  }
+
+  .profile > h2 {
+    font-size: 20px;
+  }
+
+  .profile > img {
+    width: 100px;
+  }
+
+  .Acontainer > div > h1 {
+    font-size: 28px;
+  }
+
+  .aboutText > h2 {
+    font-size: 28px;
+  }
+
+  .aboutText > p {
+    font-size: 15px;
+    line-height: 26px;
+  }
+
+  .navLinks {
+    width: 80%;
+  }
+}

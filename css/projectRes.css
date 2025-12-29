@@ -1,0 +1,352 @@
+:root {
+  --primary: #F97316;
+  --accent: #FACC15;
+  --bg-dark: #111827;
+  --text-light: #E5E7EB;
+  --text-size: 22px;
+  --card-bg: #1a1a1a;
+  --card-border: #2a2a2a;
+  --line-color: var(--primary);
+  --card-hover-shadow: var(--accent);
+  --glass-bg: rgba(26, 26, 26, 0.8);
+  --glass-border: rgba(249, 115, 22, 0.3);
+}
+
+#projects{
+  min-height: 100vh;
+  padding: 60px 20px;
+  background-color: #0f0f0f;
+}
+
+#projects > h2 {
+  font-size: 48px;
+  margin: 0 0 50px;
+  text-align: center;
+  color: var(--primary);
+  text-shadow: 2px 2px 8px rgba(249, 115, 22, 0.5);
+}
+
+.projects-container {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 85%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.project-card {
+  position: relative;
+  width: 350px;
+  max-width: 100%;
+  background-color: var(--card-bg);
+  border: 2px solid var(--card-border);
+  padding: 20px;
+  border-radius: 16px;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.project-card:hover {
+  border: 2px solid var(--primary);
+  /* box-shadow: 0 0 8px 2px var(--card-hover-shadow); */
+  box-shadow: 0 12px 40px rgba(249, 115, 22, 0.3);
+  transform: translateY(-10px);
+
+  /* border-color: var(--primary); */
+  
+}
+
+.project-img > h2 {
+  font-size: 24px;
+  margin: 0 0 20px;
+  text-align: center;
+  color: var(--primary);
+  text-shadow: 1px 1px 4px rgba(249, 115, 22, 0.3);
+  font-weight: bold;
+}
+
+.project-img > img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 20px;
+  border-radius: 12px;
+  border: 2px solid var(--card-border);
+  transition: all 0.3s ease;
+}
+
+.project-img > img:hover {
+  border-color: var(--primary);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.5);
+}
+
+.project-desc {
+  margin-bottom: 20px;
+}
+
+.project-desc > ul {
+  padding-left: 0;
+  margin: 0;
+}
+
+.project-desc > ul > li {
+  list-style-type: none;
+  line-height: 1.7;
+  padding-left: 20px;
+  font-size: 15px;
+  color: var(--text-light);
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.project-desc > ul > li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.stack {
+  margin-bottom: 20px;
+}
+
+.stack > h3 {
+  color: var(--accent);
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.stack > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-left: 0;
+  margin: 0;
+}
+
+.stack > ul > li {
+  list-style-type: none;
+  padding: 6px 12px;
+  font-size: 13px;
+  color: white;
+  background-color: var(--primary);
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.stack > ul > li:hover {
+  background-color: var(--accent);
+  color: black;
+  transform: scale(1.05);
+}
+
+.project-Link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid var(--card-border);
+}
+
+.project-Link > a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--text-light);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 16px;
+  background-color: var(--card-border);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.project-Link > a:first-child {
+  background-color: var(--primary);
+}
+
+.project-Link > a:first-child:hover {
+  background-color: var(--accent);
+  color: black;
+  box-shadow: 0 0 15px rgba(250, 204, 21, 0.5);
+}
+
+.project-Link > a:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(249, 115, 22, 0.3);
+}
+
+.project-Link img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+
+.project-Link > a:first-child img {
+  filter: brightness(0) invert(1);
+}
+
+.project-Link > a:first-child:hover img {
+  filter: brightness(0);
+}
+
+/* ========== TABLET RESPONSIVE (768px - 1024px) ========== */
+@media screen and (max-width: 1024px) {
+  #projects {
+    padding: 50px 20px;
+  }
+
+  #projects > h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+  }
+
+  .projects-container {
+    width: 90%;
+    gap: 30px;
+  }
+
+  .project-card {
+    width: 320px;
+  }
+}
+
+/* ========== MOBILE RESPONSIVE (max-width: 768px) ========== */
+@media screen and (max-width: 768px) {
+  #projects {
+    padding: 40px 15px;
+    min-height: auto;
+  }
+
+  #projects > h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+
+  .projects-container {
+    width: 95%;
+    gap: 25px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-card {
+    width: 100%;
+    max-width: 450px;
+    padding: 18px;
+  }
+
+  .project-img > h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .project-desc > ul > li {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  .stack > ul {
+    gap: 6px;
+  }
+
+  .stack > ul > li {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .project-Link {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .project-Link > a {
+    padding: 7px 14px;
+    font-size: 13px;
+  }
+
+  .project-Link img {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* ========== SMALL MOBILE (max-width: 480px) ========== */
+@media screen and (max-width: 480px) {
+  #projects > h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+
+  .project-card {
+    padding: 16px;
+  }
+
+  .project-img > h2 {
+    font-size: 20px;
+  }
+
+  .project-desc > ul > li {
+    font-size: 13px;
+    padding-left: 18px;
+  }
+
+  .project-desc > ul > li::before {
+    font-size: 18px;
+  }
+
+  .stack > ul > li {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .project-Link > a {
+    padding: 6px 12px;
+    font-size: 12px;
+    gap: 6px;
+  }
+
+  .project-Link img {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* ========== VERY SMALL MOBILE (max-width: 360px) ========== */
+@media screen and (max-width: 360px) {
+  .project-card {
+    width: 100%;
+    padding: 14px;
+  }
+
+  .project-img > h2 {
+    font-size: 18px;
+  }
+
+  .project-desc > ul > li {
+    font-size: 12px;
+  }
+
+  .stack > ul {
+    gap: 5px;
+  }
+
+  .stack > ul > li {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+}
