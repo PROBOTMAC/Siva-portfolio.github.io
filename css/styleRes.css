@@ -1,11 +1,11 @@
 html {
   scroll-behavior: smooth;
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  position: relative;
 }
 
 :root {
@@ -18,39 +18,44 @@ html {
 
 body {
   background: #0f0f0f;
-  position: relative;
   color: var(--text-light);
-  perspective: 1000px;
-  font-family: Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
+  font-family:   Arial, Helvetica, sans-serif;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+body.menu-open {
+  overflow: hidden; /* Prevent scrolling when menu is open */
 }
 
 /* ========== NAVBAR ========== */
 #navBar {
+  position: fixed; /* Changed from sticky to fixed */
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   padding: 22px 24px;
   color: var(--primary);
-  position: sticky;
-  top: 2px;
-  /* top: 0; */
-  z-index: 100;
-  background-color: rgba(25, 26, 30, 0.65)
-
+  z-index: 1000;
+  background-color: rgba(25, 26, 30, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .logo {
-  font-size: 20px;
+  font-size: 32px;
   font-weight: bold;
-  z-index: 1001;
+  z-index: 1002;
 }
 
 .navLinks {
   display: flex;
-  z-index: 1001;
   gap: 62px;
   transition: all 0.3s ease;
+  z-index: 1001;
 }
 
 .navLinks a {
@@ -69,7 +74,7 @@ body {
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  z-index: 1001;
+  z-index: 1002;
 }
 
 .menuBtn span {
@@ -81,29 +86,39 @@ body {
 
 /* ========== HERO SECTION ========== */
 #hero {
-  min-height: 94vh;
+  min-height: 100vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 100px 40px 20px 40px; /* Added top padding for fixed navbar */
   flex-wrap: wrap;
 }
-#myName{
+
+#myName {
   color: var(--primary);
 }
 
 .profile {
-  width: 40vw;
-  text-align: center;
-  align-content: center;
+  flex: 1;
   min-width: 300px;
+  max-width: 600px;
+  text-align: center;
 }
 
 .profile > img {
   width: 150px;
   border-radius: 100%;
   border: 3px solid var(--primary);
+  animation: floating 3s ease-in-out infinite;
 
+}
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 .profile > h6 {
@@ -124,9 +139,11 @@ body {
 }
 
 .cubeSide {
-  width: 50vw;
-  align-self: center;
-  justify-items: center;
+  flex: 1;
+  min-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cube {
@@ -187,21 +204,16 @@ body {
 
 #resume {
   background-color: var(--primary);
-  
   padding: 16px 32px;
   cursor: pointer;
   border: none;
   border-radius: 16px;
   transition: 1s;
-  color: var(--text-light);
   color: black;
   font-weight: bold;
   font-size: 16px;
-}
-a{
   text-decoration: none;
-  color: black;
-
+  display: inline-block;
 }
 
 #resume:hover {
@@ -210,10 +222,6 @@ a{
 }
 
 /* ========== ABOUT SECTION ========== */
-#about{
-  /* position: relative; */
-  /* border: 3px solid red; */
-}
 #about > .Acontainer {
   min-height: 100vh;
   width: 100%;
@@ -240,8 +248,6 @@ a{
 }
 
 .Acontainer > div > img:hover {
-  /* box-shadow: 16px 12px 40px rgba(249, 115, 22, 0.3); */
-
   box-shadow: 4px 4px 5px 4px var(--primary);
 }
 
@@ -261,9 +267,7 @@ a{
   line-height: 32px;
   font-size: 18px;
   color: var(--text-light);
-  /* text-align: justify; */
 }
-
 
 /* ========== TABLET RESPONSIVE (768px - 1024px) ========== */
 @media screen and (max-width: 1024px) {
@@ -276,8 +280,7 @@ a{
   }
 
   #hero {
-    flex-direction: column;
-    padding: 40px 20px;
+    padding: 100px 20px 40px 20px;
   }
 
   .profile {
@@ -295,9 +298,8 @@ a{
 
   .cubeSide {
     width: 100%;
+    min-width: auto;
     margin-top: 40px;
-    display: flex;
-    justify-content: center;
   }
 
   .cube {
@@ -365,56 +367,48 @@ a{
 @media screen and (max-width: 768px) {
   #navBar {
     padding: 16px 20px;
-    position: sticky;
-    width: 100%;
-    top: 0;
-    left: 0;
   }
 
   .logo {
-    font-size: 18px;
+    font-size: 24px;
   }
 
   .menuBtn {
     display: flex;
-    position: relative;
-    z-index: 1002;
   }
 
   .navLinks {
-    position: absolute;
+    position: fixed;
     top: 0;
-    right: -100%; /* Start off-screen */
+    right: -100%;
     height: 100vh;
     width: 70%;
     max-width: 300px;
-    background: #1a1a1a;
+    background: rgba(26, 26, 26, 0.98);
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 30px;
     transition: right 0.4s ease;
-    z-index: 1000;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    z-index: 1001;
   }
 
   .navLinks.active {
-    right: 0; /* Slide into view */
+    right: 0;
   }
-}
 
   .navLinks a {
     font-size: 20px;
   }
 
   #hero {
-    min-height: auto;
-    padding: 40px 20px;
+    min-height: calc(100vh - 70px);
+    flex-direction: column;
+    padding: 100px 20px 40px 20px;
   }
 
   .profile {
     width: 100%;
-    margin-top: 80px;
   }
 
   .profile > img {
@@ -440,9 +434,8 @@ a{
 
   .cubeSide {
     width: 100%;
-    margin-top: 80px;
-    display: flex;
-    justify-content: center;
+    min-width: auto;
+    margin-top: 40px;
   }
 
   .cube {
@@ -521,6 +514,10 @@ a{
 
 /* ========== SMALL MOBILE (max-width: 480px) ========== */
 @media screen and (max-width: 480px) {
+  .logo {
+    font-size: 20px;
+  }
+
   .profile > h4 {
     font-size: 28px;
   }
@@ -531,6 +528,10 @@ a{
 
   .profile > img {
     width: 100px;
+  }
+
+  .cube {
+    width: 250px;
   }
 
   .Acontainer > div > h1 {
@@ -547,6 +548,7 @@ a{
   }
 
   .navLinks {
-    width: 80%;
+    width: 75%;
+    max-width: 250px;
   }
 }
