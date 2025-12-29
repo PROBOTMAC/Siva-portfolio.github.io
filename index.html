@@ -9,7 +9,7 @@
     <meta property="og:image" content="https://drive.google.com/file/d/1pGNVX3rM8KYFC7M0Vk7_nrBThR70mrKy/view?usp=sharing">
     <meta property="og:type" content="website">
 
-    <link rel="icon" href="/images/letter-s.png" type="image/png">
+    <link rel="icon" href="./images/letter-s.png" type="image/png">
 
     <title>Siva Portfolio</title>
     <link rel="stylesheet" href="./css/styleRes.css">
@@ -449,7 +449,8 @@ document.addEventListener('DOMContentLoaded', function() {
     preElement.style.opacity = '1'; // Make visible
     
     let index = 0;
-    const typingSpeed = 30; // Speed in milliseconds (lower = faster)
+    let hasTyped = false; // Prevent multiple executions
+    const typingSpeed = 30;
     
     function typeCharacter() {
       if (index < originalText.length) {
@@ -459,8 +460,22 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // Start typing after a small delay
-    setTimeout(typeCharacter, 500);
+    // Create Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        // When element is visible and hasn't typed yet
+        if (entry.isIntersecting && !hasTyped) {
+          hasTyped = true;
+          setTimeout(typeCharacter, 500); // Start typing after delay
+          observer.unobserve(preElement); // Stop observing after typing starts
+        }
+      });
+    }, {
+      threshold: 0.3 // Trigger when 30% of element is visible
+    });
+    
+    // Start observing the element
+    observer.observe(preElement);
   }
 });
 </script>
@@ -468,27 +483,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <!-- NAV LINKS  -->
 <script>
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.getElementById("navLinks");
+const menuBtn = document.querySelector('.menuBtn');
+const navLinks = document.querySelector('.navLinks');
 
-// Toggle menu on button click
-menuBtn.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
+menuBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  document.body.classList.toggle('menu-open');
 });
 
-// Close menu when clicking any navigation link
-const navItems = document.querySelectorAll(".navLinks a");
-navItems.forEach(item => {
-    item.addEventListener("click", () => {
-        navLinks.classList.remove("active");
-    });
-});
-
-// Optional: Close menu when clicking outside
-document.addEventListener("click", (e) => {
-    if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
-        navLinks.classList.remove("active");
-    }
+// Close menu when clicking links
+document.querySelectorAll('.navLinks a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    document.body.classList.remove('menu-open');
+  });
 });
 
 // FOR ANIMATION STYLES
